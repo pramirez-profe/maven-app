@@ -1,0 +1,10 @@
+name: build java application
+on:
+  push:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clonar codigo
+        uses: actions/checkout@v6
