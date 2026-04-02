@@ -23,5 +23,14 @@ jobs:
     steps:
       - name: clonar codigo
         uses: actions/checkout@v6
+      - name: verificar version de java
+        run: java -version
+      - name: instalar java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+      - name: verificar version de java
+        run: java -version
       - name: empaquetar aplicacion
         run: mvn package -DskipTests
