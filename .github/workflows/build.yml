@@ -8,3 +8,10 @@ jobs:
     steps:
       - name: clonar codigo
         uses: actions/checkout@v6
+      - name: instalar java
+        uses: actions/setup-java@5
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+      - name: compilar codigo
+        run: mvn compile
