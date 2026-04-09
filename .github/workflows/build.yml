@@ -13,10 +13,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
-      - name: Authenticate snyk
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: snyk auth $SNYK_TOKEN
       - name: compilar y ejecutar test
         run: mvn clean verify 
       - name: Publicar reporte de jacoco
