@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
           java-version: '25'
       - name: compilar y ejecutar test
-        run: mvn clean verify 
+        run: mvn verify 
       - name: Publicar reporte de jacoco
         uses: actions/upload-artifact@v6
         with:
