@@ -37,3 +37,8 @@ jobs:
         run: java -version
       - name: empaquetar aplicacion
         run: mvn package -DskipTests
+      - name: Publicar paquete
+        uses: actions/upload-artifact@v6
+        with:
+          name: maven-app
+          path: target/*.jar
