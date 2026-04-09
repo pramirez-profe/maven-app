@@ -13,10 +13,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
-      - name: compilar codigo
-        run: mvn compile
-      - name: ejecutar test
-        run: mvn test
+      - name: compilar y ejecutar test
+        run: mvn clean verify 
+      - name: Publicar reporte de jacoco
+        uses: actions/upload-artifact@v6
+        with:
+          name: jacoco-report
+          path: target/site/jacoco
   empaquetar:
     needs: compile
     runs-on: ubuntu-latest
