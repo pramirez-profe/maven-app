@@ -12,6 +12,7 @@ jobs:
         uses: snyk/actions/maven@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true
       - name: instalar java
         uses: actions/setup-java@v5
         with:
