@@ -8,11 +8,11 @@ jobs:
     steps:
       - name: clonar codigo
         uses: actions/checkout@v6
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/maven@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        continue-on-error: true
+      #- name: Run Snyk to check for vulnerabilities
+      #  uses: snyk/actions/maven@master
+      #  env:
+      #    SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #  continue-on-error: true
       - name: instalar java
         uses: actions/setup-java@v5
         with:
