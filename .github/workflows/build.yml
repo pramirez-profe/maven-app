@@ -13,6 +13,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
+      - name: verificar version de java
+        run: which java
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven@master
         env:
