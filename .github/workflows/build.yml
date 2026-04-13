@@ -18,6 +18,15 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
+      # Esto es necesario cuando se ejecuta la synk/action 
+      # debido a que esta se ejecuta en un contenedor 
+      # que corre con usuario root y crea el directorio
+      # target con su propiedad, impidiendo que el 
+      # proximo comando de maven escriba en tal directorio
+      # pueso que este githuub lo ejecutara con un usuario
+      # llamado runner
+      - name: Corregit permisos en directorio target
+        run: sudo chown -R runner:runner target/
       - name: compilar y ejecutar test
         run: mvn verify 
       - name: Publicar reporte de jacoco
