@@ -10,9 +10,18 @@ jobs:
         uses: actions/checkout@v6
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven@master
+        with:
+          # Este es el comando por default
+          command: test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true
+      - name: Run Snyk monitor to take and send snapshot
+        uses: snyk/actions/maven@master
+        with:
+          command: monitor
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: instalar java
         uses: actions/setup-java@v5
         with:
