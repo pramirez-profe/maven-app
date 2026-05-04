@@ -9,6 +9,8 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: clonar codigo
         uses: actions/checkout@v6
