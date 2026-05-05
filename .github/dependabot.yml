@@ -1,0 +1,37 @@
+version: 2
+
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+    # Agrupar todas las actualizaciones de Spring en un solo PR
+    groups:
+      spring-boot:
+        patterns:
+          - "org.springframework.boot*"
+          - "org.springframework*"
+
+    # Ignorar versiones específicas o rangos
+    ignore:
+      - dependency-name: "org.apache.logging.log4j:log4j-core"
+        versions: ["2.x"]
+
+    # Rama y etiquetas para los PRs
+    target-branch: "develop"
+    labels:
+      - "dependencies"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(deps)"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "dependabot"
+      - "ci"
