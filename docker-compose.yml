@@ -1,0 +1,5 @@
+services:
+  maven-app:
+    image: maven-app:latest
+    ports:
+      - 8080:8080
