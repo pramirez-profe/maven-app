@@ -1,10 +1,16 @@
 name: build java application
 on:
   push:
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
   compile:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: clonar codigo
         uses: actions/checkout@v6
@@ -43,6 +49,15 @@ jobs:
         with:
           name: jacoco-report
           path: target/site/jacoco
+      - name: Publicar reporte en el PR
+        if: github.event_name == 'pull_request'
+        uses: madrapps/jacoco-report@v1.7.2
+        with:
+          paths: target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 80
+          min-coverage-changed-files: 85
+          title: Reporte de cobertura JaCoCo
   empaquetar:
     needs: compile
     runs-on: ubuntu-latest
