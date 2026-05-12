@@ -45,7 +45,7 @@ jobs:
       - name: compilar y ejecutar test
         run: mvn verify 
       - name: Publicar reporte de jacoco
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: jacoco-report
           path: target/site/jacoco
@@ -76,7 +76,7 @@ jobs:
       - name: empaquetar aplicacion
         run: mvn package -DskipTests
       - name: Publicar paquete
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: maven-app
           path: target/*.jar
