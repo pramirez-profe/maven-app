@@ -29,7 +29,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: instalar java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '25'
@@ -67,7 +67,7 @@ jobs:
       - name: verificar version de java
         run: java -version
       - name: instalar java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '25'
