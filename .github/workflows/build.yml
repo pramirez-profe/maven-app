@@ -40,8 +40,8 @@ jobs:
       # proximo comando de maven escriba en tal directorio
       # pueso que este githuub lo ejecutara con un usuario
       # llamado runner
-      - name: Corregit permisos en directorio target
-        run: sudo chown -R runner:runner target/
+      #- name: Corregit permisos en directorio target
+      #  run: sudo chown -R runner:runner target/
       - name: compilar y ejecutar test
         run: mvn verify 
       - name: Publicar reporte de jacoco
