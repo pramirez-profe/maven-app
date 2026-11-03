@@ -36,6 +36,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
+          cache: maven
       # Esto es necesario cuando se ejecuta la synk/action 
       # debido a que esta se ejecuta en un contenedor 
       # que corre con usuario root y crea el directorio
@@ -74,6 +75,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
+          cache: maven
       - name: verificar version de java
         run: java -version
       - name: empaquetar aplicacion
